@@ -1,32 +1,29 @@
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-950 text-white">
       <div className="container-custom section-padding">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
           <div>
-            {/* Replace "Your Name" with your actual name */}
-            <h3 className="text-xl font-bold mb-4">Asher Levin 2025</h3>
-            <p className="text-gray-300 leading-relaxed">
+            <h3 className="text-xl font-bold mb-4 text-primary-400">Asher Levin 2025</h3>
+            <p className="text-silver-300 leading-relaxed">
               Graduating Spring 2026
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-silver-200">Quick Links</h4>
             <nav className="space-y-2">
-              <a href="#home" className="block text-gray-300 hover:text-white transition-colors">
+              <a href="#home" className="block text-silver-400 hover:text-primary-400 transition-colors">
                 Home
               </a>
-              <a href="#about" className="block text-gray-300 hover:text-white transition-colors">
+              <a href="#about" className="block text-silver-400 hover:text-primary-400 transition-colors">
                 About
               </a>
-              <a href="#projects" className="block text-gray-300 hover:text-white transition-colors">
+              <a href="#projects" className="block text-silver-400 hover:text-primary-400 transition-colors">
                 Projects
               </a>
               <a href="#contact" className="block text-gray-300 hover:text-white transition-colors">
@@ -35,7 +32,6 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Social Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4">
@@ -59,15 +55,6 @@ const Footer = () => {
                 title="LinkedIn Profile"
               >
                 <Linkedin size={20} />
-              </a>
-              
-              {/* Email - Replace with your actual email */}
-              <a 
-                href="mailto:levinasher37@gmail.com" 
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
-                title="Send Email"
-              >
-                <Mail size={20} />
               </a>
             </div>
             

@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 
 const Projects = () => {
-  // Replace these with your actual projects
   const projects = [
     {
       id: 1,
@@ -19,7 +18,7 @@ const Projects = () => {
   const featuredProjects = projects.filter(project => project.featured);
 
   return (
-    <section id="projects" className="section-padding bg-gray-50">
+    <section id="projects" className="section-padding bg-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -28,11 +27,11 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-5xl font-bold text-primary-700 mb-6">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-primary-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-primary-500 mx-auto mb-8"></div>
+          <p className="text-xl text-silver-700 max-w-3xl mx-auto">
             Here are some of my many projects, more will be added as I continue with my career.
           </p>
         </motion.div>
@@ -46,7 +45,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
+              className="kean-card overflow-hidden group"
             >
               {/* Project Image */}
               <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 relative overflow-hidden">
@@ -55,7 +54,6 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback if image doesn't exist
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                     target.nextElementSibling!.classList.remove('hidden');

@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-silver-50">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,10 +31,10 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-5xl font-bold text-primary-700 mb-6">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-primary-600 mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-primary-500 mx-auto mb-8"></div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -69,16 +69,16 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex gap-4 p-6 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow"
+                  className="kean-card flex gap-4 p-6"
                 >
-                  <div className="text-primary-600 flex-shrink-0">
+                  <div className="text-primary-500 flex-shrink-0">
                     {skill.icon}
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h4 className="text-lg font-semibold text-primary-700 mb-2">
                       {skill.title}
                     </h4>
-                    <p className="text-gray-600">
+                    <p className="text-silver-700">
                       {skill.description}
                     </p>
                   </div>

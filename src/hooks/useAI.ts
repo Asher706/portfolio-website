@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { aiService, type AIResponse, type ContactAnalysis } from '../services/aiService';
 
-// Hook for AI-powered contact form
 export const useAIContact = () => {
   const [analysis, setAnalysis] = useState<ContactAnalysis | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -29,7 +28,6 @@ export const useAIContact = () => {
   };
 };
 
-// Hook for AI chatbot functionality
 export const useAIChatbot = () => {
   const [conversation, setConversation] = useState<Array<{
     id: string;
@@ -68,7 +66,6 @@ export const useAIChatbot = () => {
   };
 };
 
-// Hook for project recommendations
 export const useProjectRecommendations = () => {
   const [recommendations, setRecommendations] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -87,7 +84,6 @@ export const useProjectRecommendations = () => {
   };
 
   useEffect(() => {
-    // Load initial recommendations on mount
     getRecommendations();
   }, []);
 

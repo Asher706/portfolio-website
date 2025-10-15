@@ -17,11 +17,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 shadow-lg hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 px-6 py-3 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    @apply border-2 border-silver-500 hover:border-primary-500 text-gray-800 hover:text-primary-600 px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-silver-300 focus:ring-offset-2 bg-white hover:bg-gray-50;
+  }
+  
+  .btn-accent {
+    @apply bg-silver-500 hover:bg-silver-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-silver-300 focus:ring-offset-2;
   }
   
   .section-padding {
@@ -30,5 +34,25 @@
   
   .container-custom {
     @apply max-w-7xl mx-auto;
+  }
+  
+  .kean-gradient {
+    @apply bg-gradient-to-br from-primary-500 via-primary-600 to-primary-800;
+  }
+  
+  .kean-gradient-subtle {
+    @apply bg-gradient-to-r from-silver-100 to-gray-100;
+  }
+  
+  .kean-card {
+    @apply bg-white border-2 border-silver-200 hover:border-primary-300 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .text-kean-blue {
+    @apply text-primary-600;
+  }
+  
+  .text-kean-silver {
+    @apply text-silver-600;
   }
 }

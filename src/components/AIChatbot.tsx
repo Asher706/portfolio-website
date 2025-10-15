@@ -9,6 +9,8 @@ const AIChatbot = () => {
   const { conversation, isLoading, askQuestion } = useAIChatbot();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  console.log('AIChatbot component rendered, isOpen:', isOpen);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -40,17 +42,18 @@ const AIChatbot = () => {
   return (
     <>
       {/* Floating Chat Button */}
-      <motion.button
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 w-14 h-14 bg-primary-600 text-white rounded-full shadow-lg hover:bg-primary-700 transition-colors z-40 ${isOpen ? 'hidden' : 'flex'} items-center justify-center`}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <MessageCircle size={24} />
-      </motion.button>
+      {!isOpen && (
+        <button
+          onClick={() => {
+            console.log('Chatbot button clicked!');
+            setIsOpen(true);
+          }}
+          className="fixed bottom-6 right-6 w-16 h-16 bg-blue-600 text-white rounded-full shadow-xl hover:bg-blue-700 transition-all duration-300 z-50 flex items-center justify-center hover:scale-110 border-4 border-white"
+          title="Chat with AI Assistant"
+        >
+          <MessageCircle size={28} />
+        </button>
+      )}
 
       {/* Chat Window */}
       <AnimatePresence>
@@ -75,6 +78,7 @@ const AIChatbot = () => {
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 hover:bg-white/20 rounded-lg transition-colors"
+                aria-label="Close chat"
               >
                 <X size={20} />
               </button>
@@ -87,9 +91,9 @@ const AIChatbot = () => {
                   <Bot size={32} className="mx-auto mb-2 text-primary-600" />
                   <p className="text-sm mb-4">Hi! I'm Asher's AI assistant. Ask me anything about his experience, skills, or projects!</p>
                   <div className="space-y-2">
-                    {quickQuestions.map((question, index) => (
+                    {quickQuestions.map((question) => (
                       <button
-                        key={index}
+                        key={question}
                         onClick={() => handleSuggestionClick(question)}
                         className="block w-full text-left text-xs bg-gray-50 hover:bg-gray-100 p-2 rounded-lg transition-colors"
                       >
@@ -121,13 +125,12 @@ const AIChatbot = () => {
                         <Bot size={14} className="text-gray-600" />
                       </div>
                       <div className="bg-gray-100 p-3 rounded-2xl rounded-bl-sm">
-                        <p className="text-sm text-gray-800">{entry.response.content}</p>
+                        <p className="text-sm mb-2">{entry.response.content}</p>
                         {entry.response.suggestions && entry.response.suggestions.length > 0 && (
-                          <div className="mt-2 space-y-1">
-                            <p className="text-xs text-gray-500">Try asking:</p>
-                            {entry.response.suggestions.slice(0, 2).map((suggestion, index) => (
+                          <div className="space-y-1 mt-2">
+                            {entry.response.suggestions.slice(0, 2).map((suggestion) => (
                               <button
-                                key={index}
+                                key={suggestion}
                                 onClick={() => handleSuggestionClick(suggestion)}
                                 className="block text-xs text-primary-600 hover:text-primary-700 hover:underline"
                               >
@@ -148,11 +151,15 @@ const AIChatbot = () => {
                     <div className="w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center">
                       <Bot size={14} className="text-gray-600" />
                     </div>
-                    <div className="bg-gray-100 p-3 rounded-2xl rounded-bl-sm">
+                    <div
+                      className="bg-gray-100 p-3 rounded-2xl rounded-bl-sm"
+                      aria-live="polite"
+                      aria-label="AI response loading"
+                    >
                       <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce ai-bounce-dot"></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce ai-bounce-dot" style={{ animationDelay: '0.1s' }}></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce ai-bounce-dot" style={{ animationDelay: '0.2s' }}></div>
                       </div>
                     </div>
                   </div>
@@ -190,3 +197,14 @@ const AIChatbot = () => {
 };
 
 export default AIChatbot;
+
+/* Accessibility: Reduce bounce animation for users who prefer reduced motion */
+const style = document.createElement('style');
+style.innerHTML = `
+@media (prefers-reduced-motion: reduce) {
+  .ai-bounce-dot {
+    animation: none !important;
+  }
+}
+`;
+document.head.appendChild(style);
