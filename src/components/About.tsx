@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Palette, Zap, Users } from 'lucide-react';
+import { Code, Palette, Zap } from 'lucide-react';
 
 const About = () => {
   const skills = [

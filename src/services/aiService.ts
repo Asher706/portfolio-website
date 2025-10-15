@@ -53,7 +53,7 @@ class AIService {
     };
   }
 
-  private generateResponseSuggestions(category: string, sentiment: string): string[] {
+  private generateResponseSuggestions(category: string, _sentiment: string): string[] {
     const baseSuggestions = [
       "Thank you for reaching out! I'd love to learn more about your project.",
       "I appreciate your interest in working together. Let's schedule a call to discuss further.",
@@ -71,7 +71,7 @@ class AIService {
     return baseSuggestions;
   }
 
-  async getProjectRecommendations(userInterests?: string[]): Promise<string[]> {
+  async getProjectRecommendations(_userInterests?: string[]): Promise<string[]> {
     await new Promise(resolve => setTimeout(resolve, 300));
 
     
