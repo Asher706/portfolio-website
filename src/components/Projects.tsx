@@ -6,37 +6,14 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Project Name 1',
-      description: 'Brief description of your project. What problem does it solve? What technologies did you use?',
-      longDescription: 'More detailed description of the project, your role, challenges you faced, and solutions you implemented.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
-      liveUrl: '#', // Replace with actual live demo URL
-      githubUrl: '#', // Replace with actual GitHub repository URL
-      image: '🌐', // Replace with actual project image
+      title: 'Employee Management System',
+      description: 'Employee Management System for Use with MYSQL and PHP',
+      technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+      downloadUrl: '/documents/Employee Management Asher L.zip',
+      image: '/images/Employee-Management.jpg',
       featured: true
     },
-    {
-      id: 2,
-      title: 'Project Name 2',
-      description: 'Another amazing project showcasing different skills and technologies.',
-      longDescription: 'Detailed explanation of this project, including your approach and key learnings.',
-      technologies: ['Vue.js', 'Python', 'FastAPI', 'PostgreSQL'],
-      liveUrl: '#',
-      githubUrl: '#',
-      image: '🚀',
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'Project Name 3',
-      description: 'A third project demonstrating your range of abilities.',
-      longDescription: 'What made this project special and what you learned from building it.',
-      technologies: ['Next.js', 'MongoDB', 'OpenAI API', 'Vercel'],
-      liveUrl: '#',
-      githubUrl: '#',
-      image: '🤖',
-      featured: false
-    }
+    
   ];
 
   const featuredProjects = projects.filter(project => project.featured);
@@ -56,12 +33,12 @@ const Projects = () => {
           </h2>
           <div className="w-24 h-1 bg-primary-600 mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Here are some of my recent projects that showcase my skills and passion for creating 
-            innovative solutions.
+            Here are some of my many projects, more will be added as I continue with my career.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="flex justify-center mb-12">
+          <div className="max-w-2xl w-full">
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -71,11 +48,25 @@ const Projects = () => {
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group"
             >
-              {/* Project Image Placeholder */}
-              <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center relative overflow-hidden">
-                <div className="text-6xl">{project.image}</div>
+              {/* Project Image */}
+              <div className="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback if image doesn't exist
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.nextElementSibling!.classList.remove('hidden');
+                  }}
+                />
+                {/* Fallback placeholder */}
+                <div className="hidden absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                  <div className="text-6xl text-primary-600">📁</div>
+                </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                  <span className="text-primary-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                     {project.title}
                   </span>
                 </div>
@@ -101,25 +92,22 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex justify-center">
                   <a
-                    href={project.liveUrl}
-                    className="btn-primary inline-flex items-center gap-2 flex-1 justify-center"
+                    href={project.downloadUrl}
+                    className="btn-primary inline-flex items-center gap-2"
+                    download="Employee-Management-System.zip"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Live Demo
+                    Download Project
                     <ExternalLink size={16} />
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    className="btn-secondary inline-flex items-center gap-2 flex-1 justify-center"
-                  >
-                    Code
-                    <Github size={16} />
                   </a>
                 </div>
               </div>
             </motion.div>
           ))}
+          </div>
         </div>
 
         {/* More Projects Button */}
@@ -132,7 +120,7 @@ const Projects = () => {
         >
           {/* Replace href with link to your full portfolio or GitHub */}
           <a
-            href="#"
+            href="https://github.com/Asher706"
             className="btn-secondary inline-flex items-center gap-2"
           >
             View All Projects

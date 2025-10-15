@@ -17,7 +17,7 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo - Replace "Your Name" with your actual name */}
           <div className="text-xl font-bold text-gray-900">
-            Your Name
+            Asher Levin
           </div>
 
           {/* Desktop Navigation */}
@@ -35,14 +35,34 @@ const Header = () => {
 
           {/* Social Links */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Replace these with your actual social media links */}
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+            {/* GitHub - Replace with your GitHub profile URL */}
+            <a 
+              href="https://github.com/Asher706" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+              title="GitHub Profile"
+            >
               <Github size={20} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+            
+            {/* LinkedIn - Replace with your LinkedIn profile URL */}
+            <a 
+              href="https://www.linkedin.com/in/asher-levin-149b6925b/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+              title="LinkedIn Profile"
+            >
               <Linkedin size={20} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">
+            
+            {/* Email - Replace with your actual email */}
+            <a 
+              href="mailto:levinasher37@gmail.com" 
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+              title="Send Email"
+            >
               <Mail size={20} />
             </a>
           </div>
@@ -71,13 +91,26 @@ const Header = () => {
                 </a>
               ))}
               <div className="flex space-x-4 pt-4">
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a 
+                  href="https://github.com/yourusername" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   <Github size={20} />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a 
+                  href="https://linkedin.com/in/yourprofile" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   <Linkedin size={20} />
                 </a>
-                <a href="#" className="text-gray-600 hover:text-gray-900">
+                <a 
+                  href="mailto:levinasher37@gmail.com" 
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   <Mail size={20} />
                 </a>
               </div>

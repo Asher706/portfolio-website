@@ -13,12 +13,9 @@ export interface ContactAnalysis {
 }
 
 class AIService {
-  private apiKey: string | undefined;
-
   constructor() {
-    // In a real implementation, you'd get this from environment variables
     // For demo purposes, we'll simulate AI responses
-    this.apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    // In production, you'd configure real AI API keys
   }
 
   // Simulate AI-powered contact form analysis
@@ -93,19 +90,31 @@ class AIService {
     // Simple keyword matching for demo (replace with actual AI in production)
     const responses = {
       experience: {
-        content: "I have over [X] years of experience in full-stack development, working with modern frameworks like React, Node.js, and TypeScript. I specialize in creating responsive web applications and integrating AI features.",
+        content: "Asher is an IT major with an associates degree in IT from Raritan Valley Community College. He's been working with computers since his father first showed him how to make websites when he was young. His passion for technology started early and has grown into professional expertise.",
         confidence: 0.9
       },
       skills: {
-        content: "My core skills include React/Vue.js, TypeScript, Node.js, Python, cloud deployment (AWS/Vercel), and AI integration (OpenAI API, machine learning). I also have strong experience in UI/UX design and database management.",
+        content: "Asher specializes in frontend development with React and TypeScript, backend development with Node.js and Python, and modern web technologies. He's also skilled in database management and has experience with AI integration. His recent work includes the Employee Management System project.",
         confidence: 0.9
       },
       projects: {
-        content: "I've worked on various projects including e-commerce platforms, real-time applications, and AI-powered tools. Each project focuses on clean code, user experience, and modern best practices.",
+        content: "Asher's notable project is the Employee Management System, which demonstrates his full-stack development capabilities. You can download the project files from his portfolio to see his coding style and approach to building complete applications.",
         confidence: 0.85
       },
+      education: {
+        content: "Asher earned his associates degree in IT from Raritan Valley Community College. His education provided a strong foundation in information technology, which he's built upon with hands-on project experience and continuous learning.",
+        confidence: 0.9
+      },
+      hobbies: {
+        content: "When he's not coding, Asher enjoys reading sci-fi novels, playing board games and video games, participating in TTRPGs (tabletop role-playing games), and dog training. These diverse interests help him stay creative and bring fresh perspectives to his development work.",
+        confidence: 0.8
+      },
+      contact: {
+        content: "You can reach Asher at levinasher37@gmail.com or call him at (908) 638-6954. He's located in Hunterdon County, New Jersey. He's always excited to discuss new projects and collaboration opportunities!",
+        confidence: 0.9
+      },
       default: {
-        content: "I'd be happy to answer that! Could you be more specific about what you'd like to know about my background, skills, or experience?",
+        content: "I'd be happy to answer that! You can ask me about Asher's education, technical skills, projects, hobbies, or how to get in touch with him. What would you like to know?",
         confidence: 0.7
       }
     };
@@ -113,21 +122,32 @@ class AIService {
     const question_lower = question.toLowerCase();
     let response = responses.default;
 
-    if (question_lower.includes('experience') || question_lower.includes('work')) {
+    if (question_lower.includes('experience') || question_lower.includes('work') || question_lower.includes('background')) {
       response = responses.experience;
-    } else if (question_lower.includes('skill') || question_lower.includes('technology')) {
+    } else if (question_lower.includes('skill') || question_lower.includes('technology') || question_lower.includes('tech') || question_lower.includes('programming')) {
       response = responses.skills;
-    } else if (question_lower.includes('project') || question_lower.includes('portfolio')) {
+    } else if (question_lower.includes('project') || question_lower.includes('portfolio') || question_lower.includes('employee management')) {
       response = responses.projects;
+    } else if (question_lower.includes('education') || question_lower.includes('school') || question_lower.includes('college') || question_lower.includes('degree')) {
+      response = responses.education;
+    } else if (question_lower.includes('hobby') || question_lower.includes('hobbies') || question_lower.includes('interest') || question_lower.includes('fun') || question_lower.includes('games') || question_lower.includes('reading')) {
+      response = responses.hobbies;
+    } else if (question_lower.includes('contact') || question_lower.includes('email') || question_lower.includes('phone') || question_lower.includes('reach') || question_lower.includes('location')) {
+      response = responses.contact;
     }
+
+    const suggestions = [
+      "What's Asher's educational background?",
+      "Tell me about his technical skills",
+      "What projects has he worked on?",
+      "What are his hobbies and interests?",
+      "How can I contact Asher?",
+      "What's his experience with web development?"
+    ];
 
     return {
       ...response,
-      suggestions: [
-        "What technologies do you specialize in?",
-        "Tell me about your recent projects",
-        "What's your development process like?"
-      ]
+      suggestions: suggestions.sort(() => 0.5 - Math.random()).slice(0, 3)
     };
   }
 

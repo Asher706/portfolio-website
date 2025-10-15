@@ -15,14 +15,10 @@ const About = () => {
     },
     {
       icon: <Palette size={24} />,
-      title: 'UI/UX Design',
-      description: 'Figma, Adobe Creative Suite, Responsive Design'
+      title: 'Hobbies',
+      description: 'Reading, Board/Videogames, TTRPGs, and Dog Training'
     },
-    {
-      icon: <Users size={24} />,
-      title: 'AI Integration',
-      description: 'OpenAI API, Machine Learning, Automation'
-    }
+    
   ];
 
   return (
@@ -48,35 +44,12 @@ const About = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            {/* Replace this with your personal story/background */}
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               My Story
             </h3>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              I'm a passionate developer with [X years] of experience creating digital solutions 
-              that make a difference. My journey started with [your background/how you got started], 
-              and I've been fascinated by the intersection of technology and user experience ever since.
+            <p className="text-lg text-gray-600 leading-relaxed">
+              I am an IT major with an associates in IT from Raritan Valley Community College. I have been working with computers since my father first showed me how to make a rudimentary website for myself when I was young. If I'm not working on a project, then I'm definitely reading a sci-fi novel, playing boardgames, videogames, or I'm out with friends.
             </p>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              When I'm not coding, you can find me [your hobbies/interests]. I believe that 
-              diverse experiences outside of technology make me a more creative and empathetic developer.
-            </p>
-            
-            {/* Replace these with your actual achievements/certifications */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                <span className="text-gray-700">[Certification/Achievement 1]</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                <span className="text-gray-700">[Certification/Achievement 2]</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                <span className="text-gray-700">[Certification/Achievement 3]</span>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div

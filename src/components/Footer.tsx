@@ -10,10 +10,9 @@ const Footer = () => {
           {/* Brand Section */}
           <div>
             {/* Replace "Your Name" with your actual name */}
-            <h3 className="text-xl font-bold mb-4">Your Name</h3>
+            <h3 className="text-xl font-bold mb-4">Asher Levin 2025</h3>
             <p className="text-gray-300 leading-relaxed">
-              Creating digital experiences that make a difference. 
-              Let's build something amazing together.
+              Graduating Spring 2026
             </p>
           </div>
 
@@ -40,22 +39,33 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4">
-              {/* Replace these with your actual social media links */}
+              {/* GitHub - Replace with your GitHub profile URL */}
               <a 
-                href="#" 
+                href="https://github.com/Asher706" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                title="GitHub Profile"
               >
                 <Github size={20} />
               </a>
+              
+              {/* LinkedIn - Replace with your LinkedIn profile URL */}
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/asher-levin-149b6925b/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                title="LinkedIn Profile"
               >
                 <Linkedin size={20} />
               </a>
+              
+              {/* Email - Replace with your actual email */}
               <a 
-                href="#" 
+                href="mailto:levinasher37@gmail.com" 
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+                title="Send Email"
               >
                 <Mail size={20} />
               </a>
@@ -63,7 +73,7 @@ const Footer = () => {
             
             {/* Replace with your location or timezone */}
             <p className="text-gray-400 text-sm mt-4">
-              📍 Based in City, Country
+               Based in Hunterdon County, New Jersey
             </p>
           </div>
         </div>
@@ -72,7 +82,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Your Name. All rights reserved.
+              © {currentYear} Asher Levin 2025. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm flex items-center gap-1">
               Made with <Heart size={16} className="text-red-500" /> using React & TypeScript
